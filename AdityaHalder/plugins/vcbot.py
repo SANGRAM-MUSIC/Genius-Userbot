@@ -74,12 +74,12 @@ def time_to_seconds(time):
 
 
 @Client.on_message(
-    commandpro([".ply", "ply"]) & SUDOERS)
+    commandpro(["/play", "play", "p", "/vplay", ".play", ".ply", "ply"]) & SUDOERS)
 async def play(_, message: Message):
     global que
     global useer
     await message.delete()
-    lel = await message.reply("**🔄 𝐏𝐫𝐨𝐜𝐞𝐬𝐬𝐢𝐧𝐠 ...**")
+    lel = await message.reply("⚡")
 
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
@@ -96,7 +96,7 @@ async def play(_, message: Message):
 
         file_name = get_file_name(audio)
         title = file_name
-        thumb_name = "https://te.legra.ph/file/ed6920a2f0ab5af3fd55d.png"
+        thumb_name = "https://te.legra.ph/file/6dd3152cc47ce7bf5c35f.png"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         views = "Locally added"
@@ -128,7 +128,7 @@ async def play(_, message: Message):
             
         except Exception as e:
             title = "NaN"
-            thumb_name = "https://te.legra.ph/file/ed6920a2f0ab5af3fd55d.png"
+            thumb_name = "https://te.legra.ph/file/6dd3152cc47ce7bf5c35f.png"
             duration = "NaN"
             views = "NaN"
 
@@ -196,7 +196,7 @@ async def play(_, message: Message):
     
     
     
-@Client.on_message(commandpro([".pse", "pse"]) & SUDOERS)
+@Client.on_message(commandpro(["/pause", ".pause", ".pse", "pse"]) & SUDOERS)
 async def pause(_, message: Message):
     await message.delete()
     ACTV_CALLS = []
@@ -227,7 +227,7 @@ async def resume(_, message: Message):
         await rsum.delete()
 
 
-@Client.on_message(commandpro([".skp", "skp"]) & SUDOERS)
+@Client.on_message(commandpro(["/skip", ".skip", "skip", ".skp", "skp"]) & SUDOERS)
 async def skip(_, message: Message):
     global que
     await message.delete()
@@ -259,7 +259,7 @@ async def skip(_, message: Message):
              
 
 
-@Client.on_message(commandpro([".stp", ".end", "end", "stp"]) & SUDOERS)
+@Client.on_message(commandpro(["stop", "/stop", "/end", .stp", ".end", "end", "stp"]) & SUDOERS)
 async def stop(_, message: Message):
     await message.delete()
     ACTV_CALLS = []
@@ -281,9 +281,9 @@ async def stop(_, message: Message):
     await leav.delete()
 
 
-@Client.on_message(commandpro([".song", "sng", ".sng", ".msc", "msc"]) & SUDOERS)
+@Client.on_message(commandpro(["/song", ".song", "sng", ".sng", ".msc", "msc"]) & SUDOERS)
 async def song(client, message):
-    cap = "**🥀 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐁𝐲 ː [𝐌𝐫᭄'𝐊𝐚𝐚𝐋-𝐱𝐃](https://t.me/iamkaal)**"
+    cap = "**🥀 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐁𝐲 Farooq](https://t.me/Farooq_is_KING)**"
     rkp = await message.reply("**🔄 𝐏𝐫𝐨𝐜𝐞𝐬𝐬𝐢𝐧𝐠 ...**")
 
     if len(message.command) < 2:
@@ -385,11 +385,11 @@ __MODULE__ = "Vᴄ Bᴏᴛ"
 __HELP__ = f"""
 **Yᴏᴜ Cᴀɴ Pʟᴀʏ Mᴜsɪᴄ Oɴ VC**
 
-`.ply` - Pʟᴀʏ Mᴜsɪᴄ Oɴ Vᴄ
-`.pse` - Pᴀᴜsᴇ Yᴏᴜʀ Mᴜsɪᴄ
+`/play` - Pʟᴀʏ Mᴜsɪᴄ Oɴ Vᴄ
+`/pause` - Pᴀᴜsᴇ Yᴏᴜʀ Mᴜsɪᴄ
 `.rsm` - Rᴇsᴜᴍᴇ Yᴏᴜʀ Mᴜsɪᴄ
-`.skp` - Sᴋɪᴘ Tᴏ Tʜᴇ Nᴇxᴛ Sᴏɴɢ
-`.stp` - Sᴛᴏᴘ Pʟᴀʏɪɴɢ Aɴᴅ Lᴇᴀᴠᴇ
+`/skip` - Sᴋɪᴘ Tᴏ Tʜᴇ Nᴇxᴛ Sᴏɴɢ
+`/stop` - Sᴛᴏᴘ Pʟᴀʏɪɴɢ Aɴᴅ Lᴇᴀᴠᴇ
 `.sng` - Dᴏᴡɴʟᴏᴀᴅ Sᴏɴɢ Yᴏᴜ Wᴀɴᴛ
 `.rld` - Rᴇʟᴏᴀᴅ Yᴏᴜʀ VC Cʟɪᴇɴᴛ
 """
